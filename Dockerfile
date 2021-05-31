@@ -29,6 +29,7 @@ RUN apt-get update && apt-get upgrade -y \
         sysvshm \
         sysvmsg \
         soap \
+        zip \
     && docker-php-ext-configure intl  \
     && docker-php-ext-install intl \
     && pecl install memcached && docker-php-ext-enable memcached \
