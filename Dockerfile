@@ -19,6 +19,8 @@ RUN apt-get update && apt-get upgrade -y \
     g++ \
     libxml2-dev \
     git \
+    libzip-dev \
+    zip \
     && pear install -a SOAP-0.13.0 \
     && docker-php-ext-install \
         iconv \
