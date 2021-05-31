@@ -13,11 +13,13 @@ https://hub.docker.com/repository/docker/petranek80/php7.3.3-fpm-xdebug-git
 
 ### 1. add PHP docker image to docker-compose.yml file
 
+```
   php:
     image: petranek80/php7.3.3-fpm-xdebug-git
     volumes:
       - ".:/var/www/html"
       - "./etc/php/php.ini:/usr/local/etc/php/conf.d/custom.php.ini"
+```
       
 
 ### 2. create PHP config file in project folder
