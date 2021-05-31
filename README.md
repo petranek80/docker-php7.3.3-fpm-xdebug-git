@@ -29,4 +29,24 @@ https://hub.docker.com/repository/docker/petranek80/php7.3.3-fpm-xdebug-git
 [pdo_mysql]
 pdo_mysql.default_socket=/var/run/mysqld/mysqld.sock
 ```
-      
+### 3. configure PHP in nginx server [OPTIONAL]
+
+add to nginx config file (etc. default.template.conf)
+
+```
+server {
+
+...
+
+    location ~ \.php$ {
+        fastcgi_buffers 16 16k;
+        fastcgi_buffer_size 32k;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass php:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+    }
+}    
+```    
